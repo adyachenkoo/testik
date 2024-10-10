@@ -7,8 +7,13 @@ use App\Models\Article;
 
 class ArticleController extends Controller
 {
+    public function index() {
+        $articles = Article::all()->take(6);
+        return view('welcome', ['articles'=>$articles]);
+    }
+ 
     public function show() {
-        $articles = Article::all();
+        $articles = Article::paginate(10);
         return view('articles', ['articles'=>$articles]);
     }
 
