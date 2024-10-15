@@ -84,7 +84,7 @@
                 <div class="w-1/4 p-8 bg-white rounded-md shadow-md order-1 flex flex-col content-center justify-start">
                     <img src="{{$article->image}}" alt="image" class=" mx-auto my-0">
                     <h3 class="text-xl text-gray-900 font-semibold hover:underline mt-2">{{ $article->title }}</h3>
-                    <p class="text-gray-400 mt-1 leading-relaxed mt-1">{{ mb_substr($article->text, 0, 100, 'utf-8') }}...</p>
+                    <p class="text-gray-400 mt-1 leading-relaxed mt-1">{{ mb_substr($article->content, 0, 100, 'utf-8') }}...</p>
                     <a class="mt-2 outline-none flex items-center text-[14px] text-blue-600 decoration-blue-600 hover:underline" href="/articles/{{$article->id}}">Подробнее...</a>
                 </div>
                 @endforeach
