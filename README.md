@@ -4,6 +4,9 @@
 
 1. Create .env file
 2. Write in the console ```composer install```
-3. Then ```php artisan key:generate```
-4. Then ```npm install```
-5. Then ```php artisan serve```
+3. Then ```npm install```
+4. Then ```php artisan key:generate```
+5. Then ```php artisan migrate```
+6. Then ```php artisan db:seed```
+7. Then ```npm run build```
+8. Then ```php artisan serve```
