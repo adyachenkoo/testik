@@ -7,22 +7,26 @@ use App\Models\Article;
 
 class ArticleController extends Controller
 {
-    public function index() {
+    public function index() 
+    {
         $articles = Article::all()->take(6);
         return view('welcome', ['articles'=>$articles]);
     }
  
-    public function show() {
+    public function show() 
+    {
         $articles = Article::paginate(10);
         return view('articles', ['articles'=>$articles]);
     }
 
-    public function one($id) {
+    public function card(int $id)
+    {
         $article = Article::find($id);
         return view('article', ['article'=>$article]);
     }
 
-    public function create(){
+    public function create() 
+    {
         $articlesArr = [
             [
                 'title'=>'Загадочная вселенная: тайны космоса 2',
@@ -41,7 +45,8 @@ class ArticleController extends Controller
         
     }
 
-    public function update($id){
+    public function update(int $id) 
+    {
         $article = Article::find($id);
         
         $article->update([
@@ -49,7 +54,8 @@ class ArticleController extends Controller
         ]);
     }
     
-    public function delete($id){
+    public function delete(int $id) 
+    {
         $article = Article::withTrashed()->find($id);
         
         $article->delete();

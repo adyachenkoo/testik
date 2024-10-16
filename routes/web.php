@@ -14,14 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [ArticleController::class, 'index']);
+Route::get('/', [ArticleController::class, 'index'])->name('articles.index');
 
-Route::get('/articles', [ArticleController::class, 'show']);
+Route::get('/articles', [ArticleController::class, 'show'])->name('articles.show');
 
-Route::get('/articles/create', [ArticleController::class, 'create']);
+Route::get('/articles/create', [ArticleController::class, 'create'])->name('articles.create');
 
-Route::get('/articles/update/{id}', [ArticleController::class, 'update']);
+Route::get('/articles/update/{id}', [ArticleController::class, 'update'])->name('articles.update');
 
-Route::get('/articles/delete/{id}', [ArticleController::class, 'delete']);
+Route::get('/articles/delete/{id}', [ArticleController::class, 'delete'])->name('articles.delete');
 
-Route::get('/articles/{id}', [ArticleController::class, 'one']);
+Route::get('/articles/{id}', [ArticleController::class, 'card'])->name('articles.card');
