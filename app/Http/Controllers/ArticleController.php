@@ -7,57 +7,71 @@ use App\Models\Article;
 
 class ArticleController extends Controller
 {
-    public function index() 
+    public function main() 
     {
         $articles = Article::all()->take(6);
         return view('welcome', ['articles'=>$articles]);
     }
  
-    public function show() 
+    public function index() 
     {
         $articles = Article::paginate(10);
-        return view('articles', ['articles'=>$articles]);
+        return view('articles.index', ['articles'=>$articles]);
     }
 
-    public function card(int $id)
+    public function show(int $id)
     {
-        $article = Article::find($id);
-        return view('article', ['article'=>$article]);
+        $article = Article::findOrFail($id);
+        return view('articles.show', ['article'=>$article]);
     }
 
     public function create() 
     {
-        $articlesArr = [
-            [
-                'title'=>'Загадочная вселенная: тайны космоса 2',
-                'content'=>'На просторах бескрайних вод, где свет играет на поверхности, существует удивительный мир. Глубины океана, словно неведомый космос, полны тайных обитателей, каждый из которых имеет свою историю. Рыбы, как главные герои этой подводной симфонии, плавно скользят среди волновых движений. Их чешуя сверкает, отражая солнечные лучи, и иногда кажется, что они танцуют под водной мелодией.',
-            ],
-            [
-                'title'=>'Другая загадочная вселенная: тайны космоса 3',
-                'content'=>'На просторах бескрайних вод, где свет играет на поверхности, существует удивительный мир. Глубины океана, словно неведомый космос, полны тайных обитателей, каждый из которых имеет свою историю. Рыбы, как главные герои этой подводной симфонии, плавно скользят среди волновых движений. Их чешуя сверкает, отражая солнечные лучи, и иногда кажется, что они танцуют под водной мелодией.',
-            ],
-
-        ];
-
-        foreach($articlesArr as $article){
-            Article::create($article);
-        }
+        
+        return view('articles.create');
         
     }
 
-    public function update(int $id) 
+    public function store()
+    {
+        $data = request()->validate([
+            'title'=>'string',
+            'content'=>'string',
+            'image'=>'string',
+        ]);
+        Article::create($data);
+        return redirect()->route('articles.index');
+        
+    }
+
+    public function edit(int $id) 
     {
         $article = Article::find($id);
         
-        $article->update([
-            'title'=>'updated'
+        return view('articles.edit', compact('article'));
+        
+    }
+    
+    public function update(int $id) 
+    {
+        $data = request()->validate([
+            'title'=>'string',
+            'content'=>'string',
+            'image'=>'string',
         ]);
+
+        $article = Article::find($id);
+
+        $article->update($data);
+        
+        return redirect()->route('articles.show', ['id'=>$id]);
+        
     }
     
     public function delete(int $id) 
     {
-        $article = Article::withTrashed()->find($id);
-        
+        $article = Article::find($id);
         $article->delete();
+        return redirect()->route('articles.index');
     }
 }

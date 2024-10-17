@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
-    <title>{{$article->title}}</title>
+    <title>Articles</title>
 </head>
 <body class="flex content-center flex-col ">
     <nav class="relative flex w-full flex-nowrap items-center justify-between bg-zinc-50 py-2 text-neutral-500 shadow-dark-mild hover:text-neutral-700 focus:text-neutral-700 dark:bg-neutral-700 lg:flex-wrap lg:justify-start lg:py-4" data-twe-navbar-ref>
         <div class="flex w-full flex-wrap items-center justify-between px-3">
             <div class="ms-2">
-                <a class="text-xl text-black dark:text-white" href="{{ route('articles.index') }}">ArtIcLeS</a>
+                <a class="text-xl text-black dark:text-white" href="{{ route('index') }}">ArtIcLeS</a>
             </div>
         <!-- Hamburger button for mobile view -->
             <button
@@ -53,7 +53,7 @@
                     <a
                         class="p-0 text-black/60 transition duration-200 hover:text-black/80 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80 lg:px-2"
                         aria-current="page"
-                        href="{{ route('articles.index') }}"
+                        href="{{ route('index') }}"
                         data-twe-nav-link-ref
                         >Главная страница</a
                     >
@@ -64,7 +64,7 @@
                     data-twe-nav-item-ref>
                     <a
                         class="text-black dark:text-white lg:px-2"
-                        href="{{ route('articles.show') }}"
+                        href="{{ route('articles.index') }}"
                         data-twe-nav-link-ref
                         >Каталог статей</a
                     >
