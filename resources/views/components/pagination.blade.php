@@ -12,13 +12,13 @@
                 @for ($i=1;$i<=ceil($articles->total()/$articles->perPage());$i++)
                     @if ($i === $articles->currentPage())
                         <li class="text-sm">
-                            <a href="/articles/?page={{$i}}" aria-current="page" class="px-3 py-2 rounded-lg duration-150 hover:text-indigo-600 hover:bg-indigo-50 bg-indigo-50 text-indigo-600 font-medium">
+                            <a href="{{route('articles.index', ['page'=>$i])}}" aria-current="page" class="px-3 py-2 rounded-lg duration-150 hover:text-indigo-600 hover:bg-indigo-50 bg-indigo-50 text-indigo-600 font-medium">
                                 {{$i}}
                             </a>
                         </li>
                     @else  
                         <li class="text-sm">
-                            <a href="/articles/?page={{$i}}" aria-current="page" class="px-3 py-2 rounded-lg duration-150 hover:text-indigo-600 hover:bg-indigo-50">
+                            <a href="{{route('articles.index', ['page'=>$i])}}" aria-current="page" class="px-3 py-2 rounded-lg duration-150 hover:text-indigo-600 hover:bg-indigo-50">
                                 {{$i}}
                             </a>
                         </li>
