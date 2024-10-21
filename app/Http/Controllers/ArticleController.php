@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Article;
+use App\Models\Category;
+use App\Models\Tag;
 
 class ArticleController extends Controller
 {
@@ -27,8 +29,8 @@ class ArticleController extends Controller
 
     public function create() 
     {
-        
-        return view('articles.create');
+        $categories = Category::all();
+        return view('articles.create', ['categories'=>$categories]);
         
     }
 
@@ -38,6 +40,7 @@ class ArticleController extends Controller
             'title'=>'string',
             'content'=>'string',
             'image'=>'string',
+            'category_id'=>''
         ]);
         Article::create($data);
         return redirect()->route('articles.index');
@@ -47,8 +50,8 @@ class ArticleController extends Controller
     public function edit(int $id) 
     {
         $article = Article::find($id);
-        
-        return view('articles.edit', compact('article'));
+        $categories = Category::all();
+        return view('articles.edit', compact('article', 'categories'));
         
     }
     
@@ -58,6 +61,7 @@ class ArticleController extends Controller
             'title'=>'string',
             'content'=>'string',
             'image'=>'string',
+            'category_id'=>''
         ]);
 
         $article = Article::find($id);

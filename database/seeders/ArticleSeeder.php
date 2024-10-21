@@ -20,6 +20,7 @@ class ArticleSeeder extends Seeder
             'likes'=>13,
             'views'=>140,
             'image'=>'https://placehold.co/600x400',
+            'category_id'=>1,
             'created_at'=>Carbon::now(),
             'updated_at'=>Carbon::now(),
         ]);
@@ -29,6 +30,7 @@ class ArticleSeeder extends Seeder
             'likes'=>'22',
             'views'=>'162',
             'image'=>'https://placehold.co/600x400',
+            'category_id'=>2,
             'created_at'=>Carbon::now(),
             'updated_at'=>Carbon::now(),
         ]);
@@ -38,6 +40,7 @@ class ArticleSeeder extends Seeder
             'likes'=>'423',
             'views'=>'1292',
             'image'=>'https://placehold.co/600x400',
+            'category_id'=>1,
             'created_at'=>Carbon::now(),
             'updated_at'=>Carbon::now(),
         ]);
@@ -47,6 +50,7 @@ class ArticleSeeder extends Seeder
             'likes'=>'65',
             'views'=>'102',
             'image'=>'https://placehold.co/600x400',
+            'category_id'=>2,
             'created_at'=>Carbon::now(),
             'updated_at'=>Carbon::now(),
         ]);
@@ -56,6 +60,7 @@ class ArticleSeeder extends Seeder
             'likes'=>'93',
             'views'=>'137',
             'image'=>'https://placehold.co/600x400',
+            'category_id'=>1,
             'created_at'=>Carbon::now(),
             'updated_at'=>Carbon::now(),
         ]);
@@ -65,6 +70,7 @@ class ArticleSeeder extends Seeder
             'likes'=>'43',
             'views'=>'182',
             'image'=>'https://placehold.co/600x400',
+            'category_id'=>2,
             'created_at'=>Carbon::now(),
             'updated_at'=>Carbon::now(),
         ]);
@@ -74,6 +80,7 @@ class ArticleSeeder extends Seeder
             'likes'=>'2',
             'views'=>'199',
             'image'=>'https://placehold.co/600x400',
+            'category_id'=>1,
             'created_at'=>Carbon::now(),
             'updated_at'=>Carbon::now(),
         ]);
@@ -83,6 +90,7 @@ class ArticleSeeder extends Seeder
             'likes'=>'12',
             'views'=>'17',
             'image'=>'https://placehold.co/600x400',
+            'category_id'=>2,
             'created_at'=>Carbon::now(),
             'updated_at'=>Carbon::now(),
         ]);
@@ -92,6 +100,7 @@ class ArticleSeeder extends Seeder
             'likes'=>'14',
             'views'=>'131',
             'image'=>'https://placehold.co/600x400',
+            'category_id'=>1,
             'created_at'=>Carbon::now(),
             'updated_at'=>Carbon::now(),
         ]);
@@ -101,6 +110,7 @@ class ArticleSeeder extends Seeder
             'likes'=>'4',
             'views'=>'127',
             'image'=>'https://placehold.co/600x400',
+            'category_id'=>2,
             'created_at'=>Carbon::now(),
             'updated_at'=>Carbon::now(),
         ]);
@@ -110,6 +120,7 @@ class ArticleSeeder extends Seeder
             'likes'=>'3',
             'views'=>'183',
             'image'=>'https://placehold.co/600x400',
+            'category_id'=>1,
             'created_at'=>Carbon::now(),
             'updated_at'=>Carbon::now(),
         ]);
@@ -119,6 +130,7 @@ class ArticleSeeder extends Seeder
             'likes'=>'92',
             'views'=>'196',
             'image'=>'https://placehold.co/600x400',
+            'category_id'=>2,
             'created_at'=>Carbon::now(),
             'updated_at'=>Carbon::now(),
         ]);

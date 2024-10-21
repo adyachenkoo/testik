@@ -20,6 +20,9 @@ return new class extends Migration
             $table->integer('views')->default(0);
             $table->timestamps();
             $table->softDeletes();
+            $table->unsignedBigInteger('category_id')->nullable();
+            $table->index('category_id', 'article_category_idx');
+            $table->foreign('category_id', 'article_category_fk')->on('categories')->references('id');
         });
     }
 
