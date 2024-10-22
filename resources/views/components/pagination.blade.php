@@ -43,11 +43,11 @@
     </div>
     <!-- On mobile version -->
     <div class="flex items-center justify-between text-sm text-gray-600 font-medium sm:hidden">
-        <a href="#" class="px-4 py-2 border rounded-lg duration-150 hover:bg-gray-50">Previous</a>
+        <a href="{{$articles->previousPageUrl()}}" class="px-4 py-2 border rounded-lg duration-150 hover:bg-gray-50">Previous</a>
         <div class="font-medium">
-            Page 1 of 9
+            Page {{$articles->currentPage()}} of {{$articles->lastPage()}}
         </div>
-        <a href="#" class="px-4 py-2 border rounded-lg duration-150 hover:bg-gray-50">Next</a>
+        <a href="{{$articles->nextPageUrl()}}" class="px-4 py-2 border rounded-lg duration-150 hover:bg-gray-50">Next</a>
     </div>
     <pre>
         

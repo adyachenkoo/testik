@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->text('text');
-            $table->text('image')->default('https://placehold.co/600x400');
+            $table->string('image')->default('https://placehold.co/600x400');
             $table->integer('likes')->default(0);
             $table->integer('views')->default(0);
             $table->timestamps();
