@@ -14,43 +14,43 @@ class ArticleTagSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('article_tags')->insert([
+        DB::table('article_tag')->insert([
             'article_id'=>1,
             'tag_id'=>2,
         ]);
-        DB::table('article_tags')->insert([
+        DB::table('article_tag')->insert([
             'article_id'=>2,
             'tag_id'=>2,
         ]);
-        DB::table('article_tags')->insert([
+        DB::table('article_tag')->insert([
             'article_id'=>3,
             'tag_id'=>2,
         ]);
-        DB::table('article_tags')->insert([
+        DB::table('article_tag')->insert([
             'article_id'=>4,
             'tag_id'=>3,
         ]);
-        DB::table('article_tags')->insert([
+        DB::table('article_tag')->insert([
             'article_id'=>5,
             'tag_id'=>3,
         ]);
-        DB::table('article_tags')->insert([
+        DB::table('article_tag')->insert([
             'article_id'=>1,
             'tag_id'=>3,
         ]);
-        DB::table('article_tags')->insert([
+        DB::table('article_tag')->insert([
             'article_id'=>1,
             'tag_id'=>1,
         ]);
-        DB::table('article_tags')->insert([
+        DB::table('article_tag')->insert([
             'article_id'=>2,
             'tag_id'=>3,
         ]);
-        DB::table('article_tags')->insert([
+        DB::table('article_tag')->insert([
             'article_id'=>5,
             'tag_id'=>4,
         ]);
-        DB::table('article_tags')->insert([
+        DB::table('article_tag')->insert([
             'article_id'=>5,
             'tag_id'=>1,
         ]);

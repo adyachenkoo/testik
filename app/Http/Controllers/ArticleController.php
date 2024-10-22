@@ -19,6 +19,8 @@ class ArticleController extends Controller
     public function index() 
     {
         $articles = Article::paginate(10);
+        $article = Article::find(2);
+        dd($article->tags);
         return view('articles.index', ['articles'=>$articles]);
     }
 
@@ -60,7 +62,6 @@ class ArticleController extends Controller
         $article = Article::find($id);
         $categories = Category::all();
         $tags = Tag::all();
-        // $articleTags = ArticleTag::where('article_id', $article->id)->get();
         
         return view('articles.edit', compact('article', 'categories', 'tags'));
         
