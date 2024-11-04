@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Article;
 
 use App\Models\Article;
-use Illuminate\Routing\Controller;
+use App\Http\Controllers\Article\BaseController;
 
 
-class DeleteController extends Controller
+class DeleteController extends BaseController
 {
     public function __invoke(int $id)
     {

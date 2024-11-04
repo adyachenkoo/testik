@@ -5,10 +5,10 @@ namespace App\Http\Controllers\Article;
 use App\Models\Tag;
 use App\Models\Article;
 use App\Models\Category;
-use Illuminate\Routing\Controller;
+use App\Http\Controllers\Article\BaseController;
 
 
-class EditController extends Controller
+class EditController extends BaseController
 {
     public function __invoke(int $id)
     {

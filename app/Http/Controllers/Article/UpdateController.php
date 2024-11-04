@@ -3,27 +3,17 @@
 namespace App\Http\Controllers\Article;
 
 use App\Models\Article;
-use Illuminate\Routing\Controller;
+use App\Http\Requests\Article\UpdateRequest;
+use App\Http\Controllers\Article\BaseController;
 
 
-class UpdateController extends Controller
+class UpdateController extends BaseController
 {
-    public function __invoke(int $id)
+    public function __invoke(UpdateRequest $request, int $id)
     {
-        $data = request()->validate([
-            'title'=>'string',
-            'content'=>'string',
-            'image'=>'string',
-            'category_id'=>'',
-            'tags'=>''
-        ]);
-        $tags = $data['tags'];
-        unset($data['tags']);
+        $data = $request->validated();
 
-        $article = Article::find($id);
-
-        $article->update($data);
-        $article->tags()->sync($tags);
+        $this->service->update($id, $data);
         
         return redirect()->route('articles.show', ['id'=>$id]);
     }

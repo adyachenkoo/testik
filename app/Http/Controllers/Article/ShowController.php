@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Article;
 
 use App\Models\Article;
-use Illuminate\Routing\Controller;
+use App\Http\Controllers\Article\BaseController;
 
 
-class ShowController extends Controller
+class ShowController extends BaseController
 {
     public function __invoke(int $id)
     {

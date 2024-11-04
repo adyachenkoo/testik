@@ -4,10 +4,10 @@ namespace App\Http\Controllers\Article;
 
 use App\Models\Tag;
 use App\Models\Category;
-use Illuminate\Routing\Controller;
+use App\Http\Controllers\Article\BaseController;
 
 
-class CreateController extends Controller
+class CreateController extends BaseController
 {
     public function __invoke()
     {

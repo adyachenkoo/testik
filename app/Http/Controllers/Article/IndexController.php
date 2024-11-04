@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Article;
 
 use App\Models\Article;
-use Illuminate\Routing\Controller;
+use App\Http\Controllers\Article\BaseController;
 
 
-class IndexController extends Controller
+class IndexController extends BaseController
 {
     public function __invoke()
     {

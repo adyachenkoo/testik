@@ -3,26 +3,18 @@
 namespace App\Http\Controllers\Article;
 
 use App\Models\Article;
-use Illuminate\Routing\Controller;
+use App\Http\Requests\Article\StoreRequest;
+use App\Http\Controllers\Article\BaseController;
 
 
-class StoreController extends Controller
+class StoreController extends BaseController
 {
-    public function __invoke()
+    public function __invoke(StoreRequest $request)
     {
-        $data = request()->validate([
-            'title'=>'required|string',
-            'content'=>'required|string',
-            'image'=>'',
-            'category_id'=>'',
-            'tags'=>'required',
-        ]);
-        $tags = $data['tags'];
-        unset($data['tags']);
-        
-        $article = Article::create($data);
-        $article->tags()->attach($tags);
+        $data = $request->validated();
 
+        $this->service->store($data);
+        
         return redirect()->route('articles.index');
     }
 }
