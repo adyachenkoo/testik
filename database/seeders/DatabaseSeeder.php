@@ -3,11 +3,10 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Tag;
+use App\Models\Article;
+use App\Models\Category;
 use Illuminate\Database\Seeder;
-use Database\Seeders\CategorySeeder;
-use Database\Seeders\ArticleSeeder;
-use Database\Seeders\TagSeeder;
-use Database\Seeders\ArticleTagSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,11 +15,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $this->call([
-            CategorySeeder::class,
-            ArticleSeeder::class,
-            TagSeeder::class,
-            ArticleTagSeeder::class,
-        ]);
+
+        Category::factory(5)->create();
+        $tags = Tag::factory(10)->create();
+        $articles = Article::factory(25)->create();
+
+        foreach($articles as $article) {
+            $tagsIds = $tags->random(5)->pluck('id'); 
+            $article->tags()->attach('1');
+        }
     }
 }
