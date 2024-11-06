@@ -18,11 +18,11 @@
                 @endforeach
             </div>
         </div>
-        
-        {{ $articles->links('components/pagination', ['articles'=>$articles]) }}
-        
+
+        {{ $articles->withQueryString()->links('components/pagination', ['articles'=>$articles]) }}
+
 
     </div>
-    
+
 @endsection
 
