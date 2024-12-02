@@ -13,7 +13,7 @@
                     <img src="{{$article->image}}" alt="image" class=" mx-auto my-0">
                     <h3 class="text-xl text-gray-900 font-semibold hover:underline mt-2">{{ $article->title }}</h3>
                     <p class="text-gray-400 mt-1 leading-relaxed mt-1">{{ mb_substr($article->content, 0, 100, 'utf-8') }}...</p>
-                    <a class="bg-blue-500 hover:bg-blue-700 text-white font-regular py-1 px-2 rounded mt-3" href="{{route('articles.show', $article->id)}}">Подробнее...</a>
+                    <a class="btn btn-primary " href="{{route('articles.show', $article->id)}}">Подробнее...</a>
                 </div>
                 @endforeach
             </div>
