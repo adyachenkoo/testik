@@ -14,7 +14,7 @@ class IndexController extends BaseController
     {
         $data = $request->validated();
         $filter = app()->make(ArticleFilter::class, ['queryParams' => array_filter($data)]);
-        $articles = Article::filter($filter)->paginate(3);
+        $articles = Article::filter($filter)->paginate(6);
 
         // $articles = Article::paginate(10);
         return view('articles.index', ['articles'=>$articles]);
