@@ -9,3 +9,4 @@
 5. Then ```php artisan migrate --seed```
 6. Then ```npm run build```
 7. Then ```php artisan serve```
+
