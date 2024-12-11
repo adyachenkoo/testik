@@ -1,25 +1,33 @@
 @extends('layouts.main')
 @section('main')
     
-<div class="flex content-center flex-col w-1080 ">
-    <div class="flex content-center flex-col py-8 flex-wrap px-8">
-        <img src="{{$article->image}}" alt="image" class=" mr-auto my-0">
-        <h1 class="text-gray-800 text-3xl font-extrabold sm:text-4xl mt-5">{{ $article->title }}</h1>
-        <span class="text-gray-400 mt-3">Просмотров: {{ $article->views }}</span>
-        <span class="text-gray-400 mt-1">Лайков: {{ $article->likes }}</span>
-        <span class="text-gray-400 mt-1">Категория: {{ $article->category->title }}</span>
+<div class="d-flex flex-column align-items-center justify-content-center min-vh-90 bg-light">
+    <div class="container text-center">
+        <img src="{{$article->image}}" alt="image" class="img-fluid rounded mb-4">
+        <h1 class="mb-3">{{ $article->title }}</h1>
+        <div class="mb-2">
+            <span class="badge bg-secondary me-2">Просмотров: {{ $article->views }}</span>
+        </div>
+        <div class="mb-2">
+            <span class="badge bg-primary me-2">Лайков: {{ $article->likes }}</span>
+        </div>
+        <div class="mb-2">
+            <span class="badge bg-success">Категория: {{ $article->category->title }}</span>
+        </div>
 
-        <span class="text-gray-400 mt-1">Теги:
-            @foreach ($article->tags as $tag)
+        <div class="mb-2">
+            <span class="badge bg-dark">Теги:
+                @foreach ($article->tags as $tag)
                 <a>{{ ($tag->title) }}</a>
-            @endforeach
-        </span>
+                @endforeach
+            </span>
+        </div>
         
-        <p class="text-gray-400 mt-1 leading-relaxed mt-4 w-4/5">{{ $article->content }}</p>
-        <div class="flex gap-3 mt-5">
-            <a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded  mb-3" href="{{route('articles.edit', $article)}}">Редактировать статью</a>
-            <form action="{{route('articles.delete', $article->id)}}" method="POST">@csrf @method('delete')<button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded  mb-3" type="submit">Удалить статью</button></form>
-            <a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded  mb-3" href="{{route('articles.index')}}">Вернуться к каталогу статей</a>
+        <p class="lead mb-4">{{ $article->content }}</p>
+        <div class="d-flex justify-content-center gap-3">
+            <a class="btn btn-outline-warning" href="{{route('articles.edit', $article)}}">Редактировать статью</a>
+            <form action="{{route('articles.delete', $article->id)}}" method="POST">@csrf @method('delete')<button class="btn btn-outline-danger" type="submit">Удалить статью</button></form>
+            <a class="btn btn-outline-primary" href="{{route('articles.index')}}">Вернуться к каталогу статей</a>
         </div>
             
     </div>
