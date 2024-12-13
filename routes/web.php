@@ -9,6 +9,7 @@ use App\Http\Controllers\Article\StoreController;
 use App\Http\Controllers\Article\CreateController;
 use App\Http\Controllers\Article\DeleteController;
 use App\Http\Controllers\Article\UpdateController;
+use App\Http\Controllers\Admin\Article\IndexController AS AdminIndexController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,4 +32,10 @@ Route::prefix('articles')->group(function() {
     Route::get('/{id}/edit', EditController::class)->name('articles.edit');
     Route::patch('/{id}', UpdateController::class)->name('articles.update');
     Route::delete('/{id}', DeleteController::class)->name('articles.delete');    
+});
+
+Route::prefix('/admin')->group(function() {
+    Route::prefix('/articles')->group(function(){
+        Route::get('/', AdminIndexController::class)->name('admin.articles.index');
+    });
 });

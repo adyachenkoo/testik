@@ -12,13 +12,13 @@
             <span class="badge bg-primary me-2">Лайков: {{ $article->likes }}</span>
         </div>
         <div class="mb-2">
-            <span class="badge bg-success">Категория: {{ $article->category->title }}</span>
+            <a href="/articles?category_id={{ $article->category->id }}" class="badge bg-success">Категория: {{ $article->category->title }}</a>
         </div>
 
         <div class="mb-2">
             <span class="badge bg-dark">Теги:
                 @foreach ($article->tags as $tag)
-                <a>{{ ($tag->title) }}</a>
+                <a class="text-white" href="">{{ ($tag->title) }}</a>
                 @endforeach
             </span>
         </div>
