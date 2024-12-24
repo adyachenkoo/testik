@@ -207,8 +207,7 @@
     <div class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
-          <div class="">
-            <h1 class="m-0">Статьи:</h1>
+          <div class="mx-auto">
             @yield('main')
           </div><!-- /.col -->
         </div><!-- /.row -->

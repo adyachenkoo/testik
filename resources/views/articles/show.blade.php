@@ -25,8 +25,10 @@
         
         <p class="lead mb-4">{{ $article->content }}</p>
         <div class="d-flex justify-content-center gap-3">
-            <a class="btn btn-outline-warning" href="{{route('articles.edit', $article)}}">Редактировать статью</a>
-            <form action="{{route('articles.delete', $article->id)}}" method="POST">@csrf @method('delete')<button class="btn btn-outline-danger" type="submit">Удалить статью</button></form>
+            @can('view', auth()->user())
+                <a class="btn btn-outline-warning" href="{{route('articles.edit', $article)}}">Редактировать статью</a>
+                <form action="{{route('articles.delete', $article->id)}}" method="POST">@csrf @method('delete')<button class="btn btn-outline-danger" type="submit">Удалить статью</button></form>
+            @endcan
             <a class="btn btn-outline-primary" href="{{route('articles.index')}}">Вернуться к каталогу статей</a>
         </div>
             

@@ -23,9 +23,11 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('articles.index') }}">Каталог статей</a>
                     </li>
-                    <li class="nav-item ml-auto align-self-end">
-                        <a class="nav-link" href="{{ route('admin.articles.index') }}">Админ панель</a>
-                    </li>
+                    @can('view', auth()->user())
+                        <li class="nav-item ml-auto align-self-end">
+                            <a class="nav-link" href="{{ route('admin.articles.index') }}">Админ панель</a>
+                        </li>
+                    @endcan
                     @guest 
                         <li class="nav-item align-self-end">
                             <a class="nav-link" href="{{ route('login') }}">Логин</a>
