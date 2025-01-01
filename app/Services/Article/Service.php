@@ -13,6 +13,8 @@ class Service
 
         $article = Article::create($data);
         $article->tags()->attach($tags);
+
+        return $article;
     }
 
     public function update($id, $data) 
@@ -23,5 +25,7 @@ class Service
         $article = Article::find($id);
         $article->update($data);
         $article->tags()->sync($tags);
+        
+        return $article->fresh();
     }
 }
