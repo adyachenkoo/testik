@@ -13,9 +13,9 @@ class UpdateController extends BaseController
     public function __invoke(UpdateRequest $request, int $id)
     {
         $data = $request->validated();
-
+        
         $article = $this->service->update($id, $data);
         
-        return $request->is('api/*') ? ArticleResource($article) : redirect()->route('articles.show', ['id'=>$id]);
+        return $request->is('api/*') ? new ArticleResource($article) : redirect()->route('articles.show', ['id'=>$id]);
     }
 }

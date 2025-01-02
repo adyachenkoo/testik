@@ -16,6 +16,6 @@ class StoreController extends BaseController
 
         $article = $this->service->store($data);
         
-        return $request->is('api/*') ? ArticleResource($article) : redirect()->route('articles.index');
+        return $request->is('api/*') ? new ArticleResource($article) : redirect()->route('articles.index');
     }
 }
