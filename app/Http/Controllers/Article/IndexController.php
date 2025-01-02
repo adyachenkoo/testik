@@ -20,7 +20,7 @@ class IndexController extends BaseController
 
         $filter = app()->make(ArticleFilter::class, ['queryParams' => array_filter($data)]);
         $articles = Article::filter($filter)->paginate($perPage, ['*'], 'page', $page);
-        return ArticleResource::collection($articles);
-        // return view('articles.index', ['articles'=>$articles]);
+
+        return $request->is('api/*') ? ArticleResource::collection($articles) : view('articles.index', ['articles'=>$articles]);
     }
 }

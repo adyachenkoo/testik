@@ -16,8 +16,6 @@ class UpdateController extends BaseController
 
         $article = $this->service->update($id, $data);
         
-
-        return new ArticleResource($article);
-        return redirect()->route('articles.show', ['id'=>$id]);
+        return $request->is('api/*') ? ArticleResource($article) : redirect()->route('articles.show', ['id'=>$id]);
     }
 }

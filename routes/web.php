@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
-use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Article\EditController;
 use App\Http\Controllers\Article\ShowController;
 use App\Http\Controllers\Article\IndexController;
@@ -23,7 +22,6 @@ use App\Http\Controllers\Admin\Article\IndexController AS AdminIndexController;
 |
 */
 
-// Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/', [App\Http\Controllers\MainController::class, 'main'])->name('index');
 
 Route::prefix('articles')->group(function() {
@@ -36,10 +34,8 @@ Route::prefix('articles')->group(function() {
     Route::delete('/{id}', DeleteController::class)->name('articles.delete');    
 });
 
-Route::prefix('/admin')->middleware('admin')->group( function() {
+Route::prefix('/admin')->group( function() {
     Route::prefix('/articles')->group(function(){
         Route::get('/', AdminIndexController::class)->name('admin.articles.index');
     });
 });
-Auth::routes();
-

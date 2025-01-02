@@ -3,7 +3,13 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Article\EditController;
+use App\Http\Controllers\Article\ShowController;
 use App\Http\Controllers\Article\IndexController;
+use App\Http\Controllers\Article\StoreController;
+use App\Http\Controllers\Article\CreateController;
+use App\Http\Controllers\Article\DeleteController;
+use App\Http\Controllers\Article\UpdateController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +33,12 @@ Route::group(['middleware' => 'api','prefix' => 'auth'], function ($router) {
     Route::post('me', [AuthController::class, 'me']);
 });
 
-Route::group(['middleware'=>'jwt.auth'], function () {
-    Route::get('/articles', IndexController::class);
+Route::group(['middleware'=>'jwt.auth', 'prefix'=>'articles'], function () {
+    Route::get('/', IndexController::class);
+    Route::get('/create', CreateController::class);
+    Route::post('/', StoreController::class);
+    Route::get('/{id}', ShowController::class);
+    Route::get('/{id}/edit', EditController::class);
+    Route::patch('/{id}', UpdateController::class);
+    Route::delete('/{id}', DeleteController::class);  
 });

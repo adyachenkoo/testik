@@ -3,11 +3,9 @@
 
     
 <div class="container justify-content-center">
-    @can('view', auth()->user())
-        <a href="{{route('articles.create')}}" class="btn btn-outline-primary btn-lg">
-            Создать статью
-        </a>
-    @endcan
+    <a href="{{route('articles.create')}}" class="btn btn-outline-primary btn-lg">
+        Создать статью
+    </a>
     <h1 class="h1 text-center">Статьи:</h1>
     <div class="row row-cols-1 row-cols-md-3 g-4">
         @foreach ($articles as $article)
