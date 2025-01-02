@@ -7,6 +7,6 @@
 3. Then ```npm install```
 4. Then ```php artisan key:generate```
 5. Then ```php artisan migrate --seed```
-6. Then ```npm run build```
+6. Then ```npm run dev```
 7. Then ```php artisan serve```
 
